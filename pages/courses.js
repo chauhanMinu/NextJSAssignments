@@ -7,6 +7,7 @@ import Styles from '../styles/Courses.module.css'
 
 export const getStaticProps=async() => {
   //api call
+  // ssg - on build
     const response= await fetch('https://fakestoreapi.com/products?sort=desc');
     const data = await response.json(); // converts stringified json to parsed json
 
@@ -30,9 +31,10 @@ const Courses=(props) =>{
                   <div className="card">
                 <div className="card-body">
                  <img src={item.image} alt=".." className={Styles.img_responsive} />
-                 <h4 className='fs-6'>{item.title}</h4>               
+                 <h4 className='fs-6'>{item.title}</h4>    
                 
                  <h4>Rs. {item.price}</h4>
+                 <a className={Styles.btncolor} href="/contact.js">Add to Cart</a>                 
                  </div>
                  </div>
                  </div>
